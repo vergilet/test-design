@@ -1,0 +1,618 @@
+/* content */
+// element breadcrumbs ///////////////////////////////////////////
+.breadcrumbs-block {
+    background: $bg;
+    position: absolute;
+    padding: 34px 0 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+.breadcrumbs {
+    height: 52px;
+    overflow: hidden;
+}
+.breadcrumbs-push {
+    height: 86px;
+}
+.breadcrumbs-list {
+    display: table;
+    width: 100%;
+    border-top: 2px solid $w;
+    border-bottom: 2px solid $w;
+    li {
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+        .breadcrumbs-list-text {
+            position: relative;
+            z-index: 10;
+            font-size: 16px;
+            font-weight: 500;
+            white-space: nowrap;
+            padding: 0 12px 0 6px;
+        }
+        .breadcrumbs-list-corner {
+            display: block;
+            height: 48px;
+            line-height: 48px;
+            position: relative;
+            &:before {
+                z-index: 5;
+                content: "";
+                position: absolute;
+                top: -2px;
+                right: -5px;
+                width: 22px;
+                height: 52px;
+                background: transparent url('../upload/breadcrumbs@2x.png') 50% 0 no-repeat;
+                @include bgsize(21px 104px);
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                background: $tr;
+                width: 16px;
+                top: 0;
+                bottom: 0;
+            }
+        }
+        &.active {
+            .breadcrumbs-list-corner {
+                background-color: $w;
+                color: $bg;
+                &:before {
+                    background-position: 0 -52px;
+                }
+            }
+        }
+        &.active-last {
+            .breadcrumbs-list-corner {
+                &:after {
+                    background-color: $bg;
+                }
+            }
+        }
+        &.last-child {
+            .breadcrumbs-list-corner:before {
+                display: none;
+            }
+            .breadcrumbs-list-text {
+                padding-right: 6px;
+            }
+        }
+    }
+}
+// screen signin ///////////////////////////////////////////
+.screen-signin {
+}
+.signin-caption {
+    text-align: center;
+    padding: 52px 0 15px;
+}
+.signin-title {
+    font-size: 36px;
+    line-height: 1.35;
+    color: $green;
+    font-weight: 500;
+    padding-bottom: 4px;
+}
+.signin-note {
+    font-size: 20px;
+    line-height: 1.35;
+    color: $white;
+    font-weight: 500;
+}
+.signin-illustration {
+    width: 101px;
+    height: 107px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 47px;
+    margin-bottom: 24px;
+}
+.signin-img {
+    margin-top: -47px;
+    position: relative;
+    &-index-1 { z-index: 1; }
+    &-index-2 { z-index: 2; }
+    &-index-3 { z-index: 3; }
+    &-index-4 { z-index: 4; }
+    &-index-5 { z-index: 5; }
+    &-index-6 { z-index: 6; }
+    &-index-7 { z-index: 7; }
+    &-index-8 { z-index: 8; }
+    &-index-9 { z-index: 9; }
+    &-index-10 { z-index: 10; }
+    &-index-11 { z-index: 11; }
+    &-index-12 { z-index: 12; }
+}
+.signin-form {
+}
+.signin-form-error {
+    margin: -2px 0 8px;
+    color: $yellow;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 10px;
+    line-height: 14px;
+    min-height: 14px;
+    letter-spacing: 0.2px;
+}
+.signin-form-row {
+    @extend .clearfix;
+    width: 160px;
+    margin: 0 auto;
+}
+.signin-form-cell {
+    @extend .clearfix;
+    margin-bottom: 10px;
+}
+.signin-form-nav {
+    text-align: center;
+    vertical-align: top;
+    margin-bottom: 20px;
+}
+.signin-forgot-password {
+    padding-top: 16px;
+    margin-bottom: 32px;
+    text-align: center;
+    font-size: 10px;
+    line-height: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    a {
+        text-decoration: underline;
+    }
+}
+.create-account {
+    text-align: center;
+    padding-bottom: 52px;
+}
+.create-account-line {
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    border-bottom: 1px solid $white;
+    margin-bottom: 42px;
+}
+.create-account-title {
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: 0.2px;
+    margin-bottom: 11px;
+}
+.create-account-nav {
+    text-align: center;
+    vertical-align: top;
+}
+// screen get started ///////////////////////////////////////////
+.screen-get-started {
+}
+.signup-caption {
+    padding-top: 110px;
+    text-align: center;
+}
+.signup-note {
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: 0.2px;
+    margin-bottom: 14px;
+    a {
+        text-decoration: underline;
+    }
+}
+.signup-title {
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.2px;
+    margin-bottom: 11px;
+}
+.signup-form-error {
+    margin: -2px 0 8px;
+    color: $yellow;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 10px;
+    line-height: 14px;
+    min-height: 14px;
+    letter-spacing: 0.2px;
+}
+.signup-form-row {
+    @extend .clearfix;
+    width: 160px;
+    margin: 0 auto;
+}
+.signup-form-cell {
+    @extend .clearfix;
+    margin-bottom: 10px;
+}
+.signup-form-nav {
+    text-align: center;
+    vertical-align: top;
+    margin-bottom: 40px;
+}
+//screen privacy and terms ///////////////////////////////////////////
+.screen-privacy,
+.screen-terms {
+    z-index: 8080;
+    background: $w;
+    color: $bg;
+    a {
+        color: $blue;
+        text-decoration: underline;
+    }
+}
+.text-block {
+    padding: 24px 0;
+}
+a.back {
+    top: 24px;
+    left: 20px;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    .svg {
+        width: 12px;
+    }
+}
+//screen link bank ///////////////////////////////////////////
+.link-bank-caption {
+    padding: 200px 15px 60px;
+    text-align: center;
+    letter-spacing: 0.2px;
+}
+.link-bank-nav {
+    text-align: center;
+    margin-bottom: 40px;
+}
+//screen next link bank ///////////////////////////////////////////
+.next-link-bank-caption {
+    padding: 200px 15px 13px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    p {
+        margin-bottom: 23px;
+    }
+}
+.link-bank-nav {
+    font-size: 0;
+    margin: 0 -11px 40px;
+    a.button {
+        margin: 0 11px 17px;
+        width: 144px;
+        white-space: nowrap;
+    }
+}
+//screen analyzing  ///////////////////////////////////////////
+.loader-wrapper {
+    width: 100%;
+    position: relative;
+    position: absolute;
+}
+.loader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.loader-first {
+    position: absolute;
+    width: 49.999%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    overflow: hidden;
+}
+.pie-first {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200%;
+    height: 100%;
+    border: 2px solid $tr;
+    border-left-color: $yellow;
+    border-top-color: $yellow;
+    @include border-radius(50%);
+    @include transform(rotate(135deg));
+    z-index: 10;
+    @include animation-name(rotateLoaderFirst);
+    @include animation-duration(4s);
+    @include animation-timing-function(linear);
+    @include animation-iteration-count(infinite);
+    @include animation-delay(1s);
+}
+.loader-second {
+    position: absolute;
+    width: 50.111%;
+    right: 0;
+    top: 0;
+    height: 100%;
+    overflow: hidden;
+}
+.pie-second {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 200%;
+    height: 100%;
+    @include border-radius(50%);
+    border: 2px solid $tr;
+    border-left-color: $yellow;;
+    border-top-color: $yellow;;
+    @include transform(rotate(-45deg));
+    z-index: 10;
+    @include animation-name(rotateLoaderSecond);
+    @include animation-duration(4s);
+    @include animation-timing-function(linear);
+    @include animation-iteration-count(infinite);
+    @include animation-delay(0);
+}
+.timer-wrapper {
+    position: relative;
+    padding: 30px;
+    margin: 0 auto 25px;
+}
+.timer-text-table {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.timer-text-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+.timer-text {
+    text-align: center;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 22px 35px 0;
+    letter-spacing: 0.2px;
+    p {
+        margin-bottom: 22px;
+    }
+}
+.timer-text-ready {
+    display: none;
+}
+.timer-wrapper-push {
+    height: 100px;
+}
+.analyzing-navigation {
+    margin: 0 -11px;
+    min-height: 100px;
+    text-align: center;
+    padding: 0 20px;
+    a.button {
+        margin-left: 11px;
+        margin-right: 11px;
+        margin-bottom: 17px;
+    }
+}
+.analyzing-secured {
+    text-align: center;
+    color: $yellow;
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: 0.2px;
+    padding: 20px 20px 20px;
+}
+a.hide-analyzing,
+a.button-analyzing-ready,
+a.button-analyzing-ready-back {
+    display: none;
+}
+.screen-analyzing-no-card {
+    a.hide-analyzing {
+        display: inline-block;
+    }
+}
+.screen-analyzing-ready {
+    a.button-analyzing-ready-back,
+    a.button-analyzing-ready {
+        display: inline-block;
+    }
+}
+// element graphic ///////////////////////////////////////////
+.graphic {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+}
+.graphic-group {
+    position: relative;
+    padding-top: 165px;
+    margin: 0 auto 24px;
+    width: 101px;
+}
+.graphic-item {
+    margin-top: -47px;
+    position: relative;
+    svg {
+        display: block;
+    }
+    &-index-1 { z-index: 1; }
+    &-index-2 { z-index: 2; }
+    &-index-3 { z-index: 3; }
+    &-index-4 { z-index: 4; }
+    &-index-5 { z-index: 5; }
+    &-index-6 { z-index: 6; }
+    &-index-7 { z-index: 7; }
+    &-index-8 { z-index: 8; }
+    &-index-9 { z-index: 9; }
+    &-index-10 { z-index: 10; }
+
+    &-index-11 { z-index: 11; }
+    &-index-12 { z-index: 12; }
+    &-index-13 { z-index: 13; }
+    &-index-14 { z-index: 14; }
+    &-index-15 { z-index: 15; }
+    &-index-16 { z-index: 16; }
+    &-index-17 { z-index: 17; }
+    &-index-18 { z-index: 18; }
+    &-index-19 { z-index: 19; }
+    &-index-20 { z-index: 20; }
+
+    &-index-21 { z-index: 21; }
+    &-index-22 { z-index: 22; }
+    &-index-23 { z-index: 23; }
+    &-index-24 { z-index: 24; }
+    &-index-25 { z-index: 25; }
+    &-index-26 { z-index: 26; }
+    &-index-27 { z-index: 27; }
+    &-index-28 { z-index: 28; }
+    &-index-29 { z-index: 29; }
+    &-index-30 { z-index: 30; }
+
+    &-index-31 { z-index: 31; }
+    &-index-32 { z-index: 32; }
+    &-index-33 { z-index: 33; }
+    &-index-34 { z-index: 34; }
+    &-index-35 { z-index: 35; }
+    &-index-36 { z-index: 36; }
+    &-index-37 { z-index: 37; }
+    &-index-38 { z-index: 38; }
+    &-index-39 { z-index: 39; }
+    &-index-40 { z-index: 40; }
+
+    &-index-41 { z-index: 41; }
+    &-index-42 { z-index: 42; }
+    &-index-43 { z-index: 43; }
+    &-index-44 { z-index: 44; }
+    &-index-45 { z-index: 45; }
+    &-index-46 { z-index: 46; }
+    &-index-47 { z-index: 47; }
+    &-index-48 { z-index: 48; }
+    &-index-49 { z-index: 49; }
+    &-index-50 { z-index: 50; }
+
+    &-index-51 { z-index: 51; }
+    &-index-52 { z-index: 52; }
+    &-index-53 { z-index: 53; }
+    &-index-54 { z-index: 54; }
+    &-index-55 { z-index: 55; }
+    &-index-56 { z-index: 56; }
+    &-index-57 { z-index: 57; }
+    &-index-58 { z-index: 58; }
+    &-index-59 { z-index: 59; }
+}
+.graphic-push {
+    height: 410px;
+}
+// element panel-bottom ///////////////////////////////////////////
+.panel-bottom {
+    padding-left: 20px;
+    padding-right: 20px;
+    z-index: 7005;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 156px;
+    min-height: 156px;
+    overflow: hidden;
+    @include transition(max-height 0.3s $f);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    background-color: rgba(41, 44, 51, 0.75);
+    &.active {
+        //overflow: auto;
+        height: auto;
+        max-height: 100%;
+    }
+}
+.panel-bottom-dragg {
+    display: block;
+    height: 29px;
+    position: relative;
+    cursor: row-resize;
+    margin-bottom: 6px;
+}
+.panel-dragg-icon {
+    position: absolute;
+    width: 28px;
+    height: 1px;
+    background: $gray;
+    top: 50%;
+    left: 50%;
+    margin-left: -14px;
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        top: -4px;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: $gray;
+    }
+    &:after {
+        top: auto;
+        bottom: -4px;
+    }
+}
+//screen income & edit ///////////////////////////////////////////
+.income-form,
+.income-edit-form {
+    text-align: center;
+    margin-left: -4px;
+    margin-right: -4px;
+    input.input-text,
+    select.select {
+        margin: 0 4px;
+    }
+}
+.income-row-line {
+    border-bottom: 1px solid $w;
+    height: 5px;
+    clear: both;
+    margin-bottom: 14px;
+}
+.income-row,
+.income-edit-row {
+    margin-bottom: 10px;
+}
+.income-navigation,
+.income-edit-navigation {
+    margin-left: -11px;
+    margin-right: -11px;
+    padding-bottom: 8px;
+    a.button {
+        margin: 0 11px 17px;
+    }
+}
+.income-edit-navigation {
+    padding-top: 70px;
+}
+.income-note {
+    letter-spacing: 0.2px;
+    padding-bottom: 33px;
+    p {
+        margin-bottom: 8px;
+    }
+}
+.income-row-mobile-separate {
+    display: none;
+}
+.income-edit-title {
+    padding: 52px 0 88px;
+    text-align: center;
+}
+.screen-income-edit {
+    z-index: 8080;
+    .back {
+        top: 52px;
+    }
+}
+.income-edit-week,
+.income-edit-month,
+.income-week,
+.income-month {
+    display: none;
+}

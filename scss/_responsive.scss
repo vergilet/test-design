@@ -1,0 +1,113 @@
+/* responsive */
+@media screen and (max-width:374px) {
+    // global forms  ///////////////////////////////////////////
+    span.input-text,
+    input.input-text,
+    select.select {
+        height: 30px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        font-size: 15px;
+        &-139 {
+            width: 118px;
+            padding-left: 3px;
+            padding-right: 3px;
+        }
+        &-73 {
+            width: 68px;
+            padding-left: 3px;
+            padding-right: 3px;
+        }
+        &-52 {
+            width: 44px;
+            padding-left: 3px;
+            padding-right: 3px;
+        }
+    }
+    a.button,
+    input.button,
+    button.button {
+        width: 144px;
+        height: 30px;
+        font-size: 15px;
+        line-height: 28px;
+        &-max {
+            width: 236px;
+        }
+        &-144 {
+            width: 110px;
+        }
+        &-auto {
+            width: auto;
+        }
+    }
+    input.button,
+    button.button {
+        line-height: normal;
+    }
+    // element breadcrumbs ///////////////////////////////////////////
+    .breadcrumbs-list {
+        li {
+            .breadcrumbs-list-text {
+                font-size: 13px;
+            }
+        }
+    }
+    // screen signin ///////////////////////////////////////////
+    .signin-caption {
+        padding-top: 32px;
+        padding-bottom: 10px;
+    }
+    .signin-title {
+        font-size: 30px;
+        padding-bottom: 0;
+    }
+    .signin-note {
+        font-size: 18px;
+    }
+    .signin-illustration {
+        margin-bottom: 14px;
+    }
+    .signin-forgot-password {
+        padding-top: 14px;
+        margin-bottom: 28px;
+    }
+    .signin-form-nav {
+        margin-bottom: 18px;
+    }
+    .create-account-line {
+        margin-bottom: 28px;
+    }
+    .create-account {
+        padding-bottom: 32px;
+    }
+    .timer-wrapper-push {
+        height: 60px;
+    }
+    // element panel-bottom ///////////////////////////////////////////
+    .panel-bottom {
+        max-height: 147px;
+        min-height: 147px;
+    }
+    //screen income & edit ///////////////////////////////////////////
+    .income-row-mobile-separate {
+        display: block;
+        clear: both;
+        height: 10px;
+    }
+    .income-edit-navigation {
+        padding-top: 42px;
+    }
+    .income-edit-title {
+        padding-bottom: 60px;
+    }
+    .income-form,
+    .income-edit-form {
+        font-size: 15px;
+        line-height: 21px;
+        input.input-text,
+        select.select {
+            margin: 0 2px;
+        }
+    }
+}
