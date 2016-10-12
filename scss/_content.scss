@@ -8,6 +8,24 @@
     left: 0;
     right: 0;
     z-index: 100;
+    &-thin {
+        padding-top: 0;
+        .breadcrumbs {
+            height: 37px;
+        }
+        .breadcrumbs-list {
+            overflow: hidden;
+            li {
+                .breadcrumbs-list-corner {
+                    line-height: 33px;
+                    height: 33px;
+                    &:before {
+                        margin-top: -8px;
+                    }
+                }
+            }
+        }
+    }
 }
 .breadcrumbs {
     height: 52px;
@@ -15,6 +33,9 @@
 }
 .breadcrumbs-push {
     height: 86px;
+    &-thin {
+        height: 86px;
+    }
 }
 .breadcrumbs-list {
     display: table;
@@ -47,7 +68,7 @@
                 width: 22px;
                 height: 52px;
                 background: transparent url('../upload/breadcrumbs@2x.png') 50% 0 no-repeat;
-                @include bgsize(21px 104px);
+                @include bgsize(21px 208px);
             }
             &:after {
                 content: "";
@@ -66,6 +87,25 @@
                 color: $bg;
                 &:before {
                     background-position: 0 -52px;
+                }
+            }
+        }
+        &.active-red {
+            .breadcrumbs-list-corner {
+                background-color: $red;
+                //color: $w;
+                &:before {
+                    background-position: 0 -104px;
+                }
+            }
+        }
+        &.active-next-red {
+            .breadcrumbs-list-corner {
+                &:after {
+                    background-color: $red;
+                }
+                &:before {
+                    background-position: 0 -156px;
                 }
             }
         }
@@ -91,7 +131,7 @@
 }
 .signin-caption {
     text-align: center;
-    padding: 52px 0 15px;
+    padding: 18px 0 15px;
 }
 .signin-title {
     font-size: 36px;
@@ -112,7 +152,7 @@
     margin: 0 auto;
     position: relative;
     padding-top: 47px;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 .signin-img {
     margin-top: -47px;
@@ -157,27 +197,27 @@
     margin-bottom: 20px;
 }
 .signin-forgot-password {
-    padding-top: 16px;
-    margin-bottom: 32px;
+    padding-top: 6px;
+    margin-bottom: 22px;
     text-align: center;
     font-size: 10px;
     line-height: 14px;
     text-transform: uppercase;
     letter-spacing: 0.2px;
     a {
-        text-decoration: underline;
+        //text-decoration: underline;
     }
 }
 .create-account {
     text-align: center;
-    padding-bottom: 52px;
+    padding-bottom: 18px;
 }
 .create-account-line {
     height: 0;
     font-size: 0;
     line-height: 0;
     border-bottom: 1px solid $white;
-    margin-bottom: 42px;
+    margin-bottom: 22px;
 }
 .create-account-title {
     font-size: 10px;
@@ -188,22 +228,28 @@
 .create-account-nav {
     text-align: center;
     vertical-align: top;
+    padding-bottom: 20px;
 }
 // screen get started ///////////////////////////////////////////
 .screen-get-started {
 }
 .signup-caption {
-    padding-top: 110px;
+    padding-top: 88px;
     text-align: center;
 }
 .signup-note {
-    font-size: 10px;
-    line-height: 14px;
+    font-size: 12px;
+    line-height: 16px;
     letter-spacing: 0.2px;
     margin-bottom: 14px;
+    font-weight: normal;
     a {
         text-decoration: underline;
     }
+}
+.signup-bottom {
+    text-align: center;
+    padding-bottom: 32px;
 }
 .signup-title {
     font-size: 16px;
@@ -212,7 +258,7 @@
     margin-bottom: 11px;
 }
 .signup-form-error {
-    margin: -2px 0 8px;
+    margin: -2px 0 6px;
     color: $yellow;
     text-align: center;
     text-transform: uppercase;
@@ -233,7 +279,12 @@
 .signup-form-nav {
     text-align: center;
     vertical-align: top;
-    margin-bottom: 40px;
+    margin-bottom: 18px;
+}
+.signup-goback {
+    padding-top: 46px;
+    text-align: center;
+    padding-bottom: 18px;
 }
 //screen privacy and terms ///////////////////////////////////////////
 .screen-privacy,
@@ -283,7 +334,6 @@ a.back {
     margin: 0 -11px 40px;
     a.button {
         margin: 0 11px 17px;
-        width: 144px;
         white-space: nowrap;
     }
 }
@@ -355,7 +405,7 @@ a.back {
 .timer-wrapper {
     position: relative;
     padding: 30px;
-    margin: 0 auto 25px;
+    margin: 0 auto 9px;
 }
 .timer-text-table {
     display: table;
@@ -380,7 +430,7 @@ a.back {
     display: none;
 }
 .timer-wrapper-push {
-    height: 100px;
+    height: 30px;
 }
 .analyzing-navigation {
     margin: 0 -11px;
@@ -396,10 +446,12 @@ a.back {
 .analyzing-secured {
     text-align: center;
     color: $yellow;
-    font-size: 10px;
-    line-height: 14px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: normal;
     letter-spacing: 0.2px;
-    padding: 20px 20px 20px;
+    margin-top: -6px;
+    padding: 0px 20px 20px;
 }
 a.hide-analyzing,
 a.button-analyzing-ready,
@@ -427,7 +479,7 @@ a.button-analyzing-ready-back {
 }
 .graphic-group {
     position: relative;
-    padding-top: 165px;
+    padding-top: 122px;
     margin: 0 auto 24px;
     width: 101px;
 }
@@ -436,6 +488,7 @@ a.button-analyzing-ready-back {
     position: relative;
     svg {
         display: block;
+        width: 100%;
     }
     &-index-1 { z-index: 1; }
     &-index-2 { z-index: 2; }
@@ -503,10 +556,27 @@ a.button-analyzing-ready-back {
     &-index-59 { z-index: 59; }
 }
 .graphic-push {
-    height: 410px;
+    height: 340px;
+}
+.graphic-separator {
+    clear: both;
+    display: none;
+    height: 43px;
+}
+.item-fill {
+    @include transition(fill 1s $f);
 }
 // element panel-bottom ///////////////////////////////////////////
+.panel-bottom-offset {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    top: 0;
+    background: transparent;
+}
 .panel-bottom {
+    padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
     z-index: 7005;
@@ -514,15 +584,21 @@ a.button-analyzing-ready-back {
     left: 0;
     right: 0;
     bottom: 0;
-    max-height: 156px;
-    min-height: 156px;
+    max-height: 140px;
+    min-height: 140px;
     overflow: hidden;
     @include transition(max-height 0.3s $f);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     background-color: rgba(41, 44, 51, 0.75);
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-overflow-scrolling: touch;
     &.active {
-        //overflow: auto;
+        overflow: auto;
         height: auto;
         max-height: 100%;
     }
@@ -564,7 +640,8 @@ a.button-analyzing-ready-back {
     margin-left: -4px;
     margin-right: -4px;
     input.input-text,
-    select.select {
+    select.select,
+    span.input-text {
         margin: 0 4px;
     }
 }
@@ -577,6 +654,12 @@ a.button-analyzing-ready-back {
 .income-row,
 .income-edit-row {
     margin-bottom: 10px;
+}
+.income-2week-separate {
+    display: block;
+    clear: both;
+    height: 10px;
+    clear: both;
 }
 .income-navigation,
 .income-edit-navigation {
@@ -592,27 +675,159 @@ a.button-analyzing-ready-back {
 }
 .income-note {
     letter-spacing: 0.2px;
-    padding-bottom: 33px;
+    padding-bottom: 38px;
     p {
-        margin-bottom: 8px;
+        margin-bottom: 0;
     }
 }
 .income-row-mobile-separate {
     display: none;
 }
 .income-edit-title {
-    padding: 52px 0 88px;
+    padding: 30px 0 24px;
     text-align: center;
 }
 .screen-income-edit {
     z-index: 8080;
     .back {
-        top: 52px;
+        top: 30px;
     }
 }
+.income-edit-2week,
 .income-edit-week,
 .income-edit-month,
 .income-week,
-.income-month {
+.income-month,
+.income-2week {
     display: none;
 }
+//screen bills ///////////////////////////////////////////
+.bills-info {
+    text-align: center;
+    color: $red;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 7px 10px 40px;
+    letter-spacing: 0.2px;
+}
+.bills-line {
+    border-bottom: 1px solid #D9D9D9;
+}
+.bills-legend {
+    padding: 7px 0 5px;
+    font-size: 10px;
+    line-height: 14px;
+    text-transform: uppercase;
+}
+.bills-legend-due {
+    float: left;
+    width: 18.5%;
+    padding-left: 11px;
+    white-space: nowrap;
+}
+.bills-legend-name {
+    float: left;
+    width: 51.5%;
+    padding-right: 10px;
+}
+.bills-legend-amount {
+    float: left;
+    width: 30%;
+    text-align: right;
+    padding-right: 12px;
+    white-space: nowrap;
+}
+.bills-list {
+}
+.bills-row {
+    margin-bottom: 10px;
+}
+.bills-link {
+    cursor: pointer;
+    display: block;
+    border: 1px solid $w;
+    color: $red;
+    padding: 5px 0;
+}
+.bills-link-date {
+    float: left;
+    width: 18.5%;
+    padding-left: 10px;
+    white-space: nowrap;
+}
+.bills-link-info {
+    float: left;
+    width: 51.5%;
+    padding-right: 10px;
+}
+.bills-link-amount {
+    float: left;
+    width: 30%;
+    text-align: right;
+    padding-right: 10px;
+    white-space: nowrap;
+}
+.bills-total-note {
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    font-style: italic;
+    letter-spacing: 0.2px;
+    padding: 0 0 19px;
+}
+.bills-navigation {
+    text-align: center;
+    margin-left: -11px;
+    margin-right: -11px;
+    padding-bottom: 8px;
+    a.button {
+        margin: 0 11px 17px;
+        color: $red;
+    }
+}
+.bills-total {
+    padding: 1px 0 10px;
+}
+.bills-total-nav {
+    float: left;
+    width: 30%;
+    padding-left: 10px;
+}
+a.bills-add-button {
+    position: relative;
+    height: 24px;
+    line-height: 24px;
+    background: $w;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: $red;
+    display: inline-block;
+    padding: 0 17px;
+    @include border-radius(7px);
+    &:active {
+        bottom: -1px;
+    }
+}
+.bills-total-title {
+    font-size: 16px;
+    color: $red;
+    padding-top: 4px;
+    line-height: 20px;
+    float: left;
+    width: 44%;
+    text-align: right;
+}
+.bills-total-amount {
+    font-size: 16px;
+    line-height: 20px;
+    padding-top: 4px;
+    color: $red;
+    float: left;
+    width: 26%;
+    text-align: right;
+    padding-right: 10px;
+    white-space: nowrap;
+}
+
+
+

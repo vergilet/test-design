@@ -13,11 +13,13 @@
     z-index: 100002;
     width: 100%;
     height: 100%;
-    background: #000;
+    background-color: rgba(41, 44, 51, 0.75);
     opacity: 0;
     filter: alpha(opacity=0);
     -webkit-transition: all ease-in-out 0.15s;
     transition: all ease-in-out 0.15s;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
 }
 .dialog-content {
     position: absolute;
@@ -55,8 +57,8 @@
     font-size: 13px;
     line-height: 16px;
     color: $black;
-    word-wrap: break-word;
-    word-break: break-all;
+    // word-wrap: break-word;
+    // word-break: break-all;
     text-align: center;
     -webkit-overflow-scrolling: touch;
 }
@@ -203,8 +205,8 @@
     white-space: nowarp;
 }
 .dialog-wrap-show .dialog-overlay {
-    opacity: 0.6;
-    filter: alpha(opacity=60);
+    opacity: 1;
+    filter: alpha(opacity=100);
 }
 .dialog-wrap-show .dialog-content {
     opacity: 1;

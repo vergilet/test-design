@@ -244,4 +244,7 @@ body {
     font-weight: 500;
     height: 100%;
     color: $text;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }

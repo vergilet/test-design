@@ -7,7 +7,7 @@
         height: 30px;
         padding-top: 3px;
         padding-bottom: 3px;
-        font-size: 15px;
+        font-size: 14px;
         &-139 {
             width: 118px;
             padding-left: 3px;
@@ -29,7 +29,7 @@
     button.button {
         width: 144px;
         height: 30px;
-        font-size: 15px;
+        font-size: 14px;
         line-height: 28px;
         &-max {
             width: 236px;
@@ -53,9 +53,26 @@
             }
         }
     }
+    .breadcrumbs-block {
+        &-thin {
+            .breadcrumbs {
+                height: 31px;
+            }
+            .breadcrumbs-list {
+                li {
+                    .breadcrumbs-list-corner {
+                        line-height: 27px;
+                        height: 27px;
+                        &:before {
+                            margin-top: -11px;
+                        }
+                    }
+                }
+            }
+        }
+    }
     // screen signin ///////////////////////////////////////////
     .signin-caption {
-        padding-top: 32px;
         padding-bottom: 10px;
     }
     .signin-title {
@@ -70,24 +87,45 @@
     }
     .signin-forgot-password {
         padding-top: 14px;
-        margin-bottom: 28px;
     }
     .signin-form-nav {
         margin-bottom: 18px;
     }
-    .create-account-line {
-        margin-bottom: 28px;
-    }
-    .create-account {
-        padding-bottom: 32px;
-    }
     .timer-wrapper-push {
         height: 60px;
     }
+    // screen signup ///////////////////////////////////////////
+    .signup-caption {
+        padding-top: 60px;
+    }
+    .signup-goback {
+        padding-top: 0;
+    }
+    .signup-title {
+        font-size: 14px;
+        line-height: 21px;
+    }
+    //screen next link bank ///////////////////////////////////////////
+    .next-link-bank-caption {
+        padding-top: 160px;
+        font-size: 14px;
+        line-height: 21px;
+    }
+    .link-bank-nav {
+        a.button {
+            margin-left: 8px;
+            margin-right: 8px;
+            width: 124px;
+        }
+    }
+    //screen analyzing  ///////////////////////////////////////////
+    .timer-wrapper-push {
+        height: 0;
+    }
     // element panel-bottom ///////////////////////////////////////////
     .panel-bottom {
-        max-height: 147px;
-        min-height: 147px;
+        max-height: 106px;
+        min-height: 106px;
     }
     //screen income & edit ///////////////////////////////////////////
     .income-row-mobile-separate {
@@ -103,11 +141,76 @@
     }
     .income-form,
     .income-edit-form {
-        font-size: 15px;
+        font-size: 14px;
         line-height: 21px;
         input.input-text,
-        select.select {
+        select.select,
+        span.input-text {
             margin: 0 2px;
         }
+    }
+    .income-row,
+    .income-edit-row {
+        margin-bottom: 8px;
+    }
+    .income-note {
+        font-size: 13px;
+        line-height: 19px;
+        padding-bottom: 30px;
+    }
+    // element graphic ///////////////////////////////////////////
+    .graphic-group {
+        padding-top: 107px;
+        width: 86px;
+    }
+    .graphic-item {
+        margin-top: -48px;
+    }
+    .graphic-separator {
+        height: 37px;
+    }
+    //screen bills ///////////////////////////////////////////
+    .bills-info {
+        margin-top: -4px;
+        font-size: 14px;
+        line-height: 19px;
+        padding-top: 0;
+        padding-bottom: 33px;
+        letter-spacing: 0;
+    }
+    .bills-legend {
+        padding: 6px 0 3px;
+        font-size: 8px;
+        line-height: 12px;
+    }
+    .bills-row {
+        margin-bottom: 8px;
+    }
+    .bills-link {
+        font-size: 14px;
+        line-height: 20px;
+        padding: 4px 0;
+    }
+    .bills-link-date {
+        padding-left: 8px;
+    }
+    .bills-link-info,
+    .bills-link-amount {
+        padding-right: 8px;
+    }
+    a.bills-add-button {
+        height: 21px;
+        line-height: 21px;
+        font-size: 8px;
+    }
+    .bills-total-title,
+    .bills-total-amount {
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .bills-total-note {
+        font-size: 10px;
+        line-height: 14px;
+        padding: 0 0 16px;
     }
 }

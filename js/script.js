@@ -54,6 +54,7 @@ $(document).ready(function(){
     var elementGraphic = $('.graphic');
     var screenIncomeEdit = $('.screen-income-edit');
     var screenIncome = $('.screen-income');
+    var screenBills = $('.screen-bills');
 
 
     $('.go-signup').click(function(){
@@ -69,6 +70,23 @@ $(document).ready(function(){
          }, 300);
          elementBreadcrumbsSignUp
          .show("slide", {
+             direction: "up",
+             easing: "easeInOutCirc"
+         }, 300);
+    });
+    $('.go-signin').click(function(){
+         screenSignIn
+         .show("slide", {
+             direction: "left",
+             easing: "easeInOutCirc"
+         }, 300);
+         screenSignUp
+         .hide("slide", {
+             direction: "right",
+             easing: "easeInOutCirc"
+         }, 300);
+         elementBreadcrumbsSignUp
+         .hide("slide", {
              direction: "up",
              easing: "easeInOutCirc"
          }, 300);
@@ -124,7 +142,15 @@ $(document).ready(function(){
         .show("fade", {
         easing: "easeInOutCirc"
         }, 300, function(){
-            //
+            setTimeout(function(){
+                $.dialog({
+                    buttonText : {
+                        ok : 'Restart the analysis'
+                    },
+                    titleText : 'Oops, something went wrong…',
+                    contentHtml : '<p>Please restart the transaction<br> analysis below.</p>'
+                });
+            }, 2000);
         });
     });
     $('.go-analyzing').click(function(){
@@ -246,13 +272,20 @@ $(document).ready(function(){
         $('#income-amount-val').text('$'+incomeAmountVal);
         var incomeFrequencyVal = $('.income-edit-frequency').val();
         $('#income-frequency-val').text(incomeFrequencyVal);
-        if ( incomeFrequencyVal == 'every week' || incomeFrequencyVal == 'every 2 weeks'  ) {
+        if ( incomeFrequencyVal == 'every week' ) {
             var incomeWeekVal = $('.income-edit-week select').val();
-            $('.income-twice-a-month, .income-month').hide();
+            $('.income-twice-a-month, .income-month, .income-2week').hide();
             $('.income-week').show();
             $('#income-week-val').text(incomeWeekVal);
+        } else if ( incomeFrequencyVal == 'every 2 weeks' ) {
+            var income2WeekVal = $('.income-edit-2week:eq(0) select').val();
+            var income2Week2Val = $('.income-edit-2week:eq(1) select').val();
+            $('.income-twice-a-month, .income-month, .income-week').hide();
+            $('.income-2week').show();
+            $('#income-2week-val').text(income2WeekVal);
+            $('#income-2week2-val').text(income2Week2Val);
         } else if ( incomeFrequencyVal == 'twice a month' ) {
-            $('.income-month, .income-week').hide();
+            $('.income-month, .income-week, .income-2week').hide();
             $('.income-twice-a-month').show();
             var incomeTwiceVal1 = $('.income-edit-twice-a-month select:eq(0)').val();
             var incomeTwiceVal2 = $('.income-edit-twice-a-month select:eq(1)').val();
@@ -260,7 +293,7 @@ $(document).ready(function(){
             $('.income-twice-a-month span.input-text:eq(1)').text(incomeTwiceVal2);
         } else if ( incomeFrequencyVal == 'once a month' ) {
             var incomeMonthVal = $('.income-edit-month select').val();
-            $('.income-twice-a-month, .income-week').hide();
+            $('.income-twice-a-month, .income-week, .income-2week').hide();
             $('.income-month').show();
             $('#income-month-val').text(incomeMonthVal);
         }
@@ -275,17 +308,33 @@ $(document).ready(function(){
 
         var thisValue = $(this).val();
 
-        if ( thisValue == 'every week' || thisValue == 'every 2 weeks'  ) {
+        if ( thisValue == 'every week' ) {
             $('.income-edit-week').show();
-            $('.income-edit-twice-a-month, .income-edit-month').hide();
+            $('.income-edit-twice-a-month, .income-edit-month, .income-edit-2week').hide();
+        } else if ( thisValue == 'every 2 weeks' ) {
+            $('.income-edit-2week').show();
+            $('.income-edit-twice-a-month, .income-edit-month, .income-edit-week').hide();
+            var val2aMonth = $('.income-edit-select-2week').val();
+            $('.income-edit-select-2week2')
+                .html('')
+                .append('<option value="'+ val2aMonth +', 9/29">'+ val2aMonth +', 9/29</option>')
+                .append('<option value="'+ val2aMonth +', 10/6">'+ val2aMonth +', 10/6</option>');
         } else if ( thisValue == 'twice a month' ) {
             $('.income-edit-twice-a-month').show();
-            $('.income-edit-week, .income-edit-month').hide();
+            $('.income-edit-week, .income-edit-month, .income-edit-2week').hide();
         } else if ( thisValue == 'once a month' ) {
             $('.income-edit-month').show();
-            $('.income-edit-twice-a-month, .income-edit-week').hide();
+            $('.income-edit-twice-a-month, .income-edit-week, .income-edit-2week').hide();
         }
 
+    });
+
+    $('.income-edit-select-2week').bind('change', function(event) {
+        var val2aMonth = $(this).val();
+        $('.income-edit-select-2week2')
+            .html('')
+            .append('<option value="'+ val2aMonth +', 9/29">'+ val2aMonth +', 9/29</option>')
+            .append('<option value="'+ val2aMonth +', 10/6">'+ val2aMonth +', 10/6</option>');
     });
 
     $("#income-edit-amount").maskMoney({
@@ -300,6 +349,61 @@ $(document).ready(function(){
     $("#income-edit-amount").bind('change', function(event) {
         console.log($(this).val());
     });
+
+    $('.go-bills').click(function(){
+         screenIncome
+         .hide("slide", {
+             direction: "left",
+             easing: "easeInOutCirc"
+         }, 300);
+         screenBills
+         .show("slide", {
+             direction: "right",
+             easing: "easeInOutCirc"
+         }, 300);
+         $('<div class="graphic-separator graphic-separator-red"></div>').insertAfter(elementGraphic.find('.graphic-item:eq(24)'));
+         $('.graphic-separator-red').slideDown(300);
+         elementGraphic
+            .find('.graphic-item')
+                .each(function(index, el) {
+                    if (index > 24 && index < 42) {
+                        $(this).find('svg .item-fill').attr('fill','#EC293F');
+                    }
+                });
+        elementBreadcrumbsSetup
+        .find('li:eq(0)').removeClass('active-last').addClass('active-next-red')
+        .next('li').addClass('active active-last active-red');
+    });
+
+    $('.go-back-income').click(function(){
+        screenIncome
+        .show("slide", {
+            direction: "left",
+            easing: "easeInOutCirc"
+        }, 300);
+        screenBills
+        .hide("slide", {
+            direction: "right",
+            easing: "easeInOutCirc"
+        }, 300, function(){
+            screenBills.find('.panel-bottom').removeClass('active');
+        });
+        $('.graphic-separator-red').slideUp(300, function(){
+            elementGraphic.find('.graphic-separator-red').remove();
+        });
+        elementGraphic
+           .find('.graphic-item')
+               .each(function(index, el) {
+                   if (index > 24 && index < 42) {
+                       $(this).find('svg .item-fill').attr('fill','#FFFFFF');
+                   }
+               });
+        elementBreadcrumbsSetup
+        .find('li:eq(0)').addClass('active-last').removeClass('active-next-red')
+        .next('li').removeClass('active active-last active-red');
+    });
+
+
 
 
     // $(document).on('swipeleft', function(event) {
@@ -372,17 +476,21 @@ $(document).ready(function(){
     //------------------------------------------------------------------------//
 
     $(document).on('swipeup click', '.panel-bottom:not(".active")', function(event) {
-        $('.panel-bottom').addClass('active');
+        $(this).addClass('active');
     });
-    $(document).on('swipedown click', '.panel-bottom.active .panel-bottom-dragg', function(event) {
-        $('.panel-bottom').removeClass('active');
+    $(document).on('swipedown', '.panel-bottom.active', function(event) {
+        var offsetToSwipe = $(this).find('.panel-bottom-offset').offset().top - $(this).offset().top;
+        if ( offsetToSwipe >= 0 ) {
+            $(this).removeClass('active');
+        }
     });
+
+    //
 
     //------------------------------------------------------------------------//
 
     $('.button-show-modal').on('click', function(event) {
         event.preventDefault();
-        console.log('click');
         $.dialog({
             type : 'confirm',
             buttonText : {
